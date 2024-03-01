@@ -53,7 +53,6 @@ export default function App() {
 
   return (
     <ThemeProvider theme={COLORS}>
-      <StatusBar style="dark" translucent backgroundColor="transparent"/>
       <GestureHandlerRootView style={{flex: 1}}>
         <View>
           <Text>oi</Text>
