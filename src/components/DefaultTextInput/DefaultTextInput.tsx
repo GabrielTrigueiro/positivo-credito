@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import {TextInput, TextInputProps} from "react-native-paper";
 import {MaterialIcons} from "@expo/vector-icons";
+import {useTheme} from "styled-components";
+
 import {StyledTextInput} from "./styles";
 
 interface IProps extends TextInputProps {
@@ -16,6 +18,8 @@ interface IProps extends TextInputProps {
 
 const DefaultTextInput = (props: IProps) => {
 
+  const theme = useTheme();
+
   const {label, inputValue, onValueChange, iconColor, iconSize, startIconName, endIconName, security, ...rest} = props;
 
   const [showPass, setShowPass] = useState(false)
@@ -23,6 +27,8 @@ const DefaultTextInput = (props: IProps) => {
   return (
     <StyledTextInput
       {...rest}
+      theme={{colors: {primary: "#000", background: theme.COLORS.GRAY6, outline: "transparent"}, roundness: 40}}
+      placeholderTextColor={theme.COLORS.GRAY3}
       mode={"outlined"}
       label={label}
       value={inputValue}
