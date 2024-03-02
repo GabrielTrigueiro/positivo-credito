@@ -7,9 +7,11 @@ export const Container = styled(View)`
     align-items: center;
     padding: ${RFValue(5)}%;
     background: ${({theme}) => theme.COLORS.WHITE_100};
+    gap: ${RFValue(5)}px;
 `
 export const MainTitle = styled(Text)`
     margin-top: ${RFValue(40)}px;
+    margin-bottom: ${RFValue(150)}px;
     text-align: center;
     font-size: ${RFValue(25)}px;
     font-family: ${({ theme }) => theme.FONTS.POPPINSMEDIUM};
