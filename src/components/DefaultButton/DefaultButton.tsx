@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Button} from 'react-native-paper';
 import {MaterialIcons} from "@expo/vector-icons";
+import {StyledButton} from "./styles";
 
 interface IButtonProps {
   label: string;
@@ -12,9 +12,9 @@ const DefaultButton = (props: IButtonProps) => {
   const {iconName, action, label} = props;
 
   return (
-    <Button icon={iconName} mode="contained" onPress={action}>
-      {label}
-    </Button>
+      <StyledButton icon={iconName} mode="contained" onPress={action}>
+        {label}
+      </StyledButton>
   )
 };
 

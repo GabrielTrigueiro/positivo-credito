@@ -10,9 +10,20 @@ export const Container = styled(View)`
     gap: ${RFValue(5)}px;
 `
 export const MainTitle = styled(Text)`
-    margin-top: ${RFValue(40)}px;
-    margin-bottom: ${RFValue(150)}px;
     text-align: center;
     font-size: ${RFValue(25)}px;
     font-family: ${({ theme }) => theme.FONTS.POPPINSMEDIUM};
+    color: ${({ theme }) => theme.COLORS.BLACK};
 `;
+
+export const HeaderContainer = styled(View)`
+    margin-top: ${RFValue(35)}%;
+    margin-bottom: ${RFValue(25)}%;
+`
+export const BodyContainer = styled(View)`
+    gap: ${RFValue(5)}px;
+    margin-bottom: ${RFValue(25)}%;
+`
+export const FooterContainer = styled(View)`
+    width: ${RFValue(200)}px;
+`
