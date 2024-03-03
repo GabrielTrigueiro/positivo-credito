@@ -16,8 +16,8 @@ import {
 
 import COLORS from "./src/styles/theme"
 import {StatusBar} from "react-native";
-import Login from "./src/screens/Login/Login";
-import Register from "./src/screens/Register/Register";
+import Register from "./src/screens/register/Register";
+
 
 export default function App() {
 

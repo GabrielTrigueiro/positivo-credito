@@ -7,6 +7,7 @@ export const Container = styled(View)`
     align-items: center;
     background: ${({theme}) => theme.COLORS.WHITE_100};
     gap: ${RFValue(5)}px;
+    overflow: scroll;
 `
 export const MainTitle = styled(Text)`
     text-align: center;

@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {TextInput, TextInputProps} from "react-native-paper";
+import {HelperText, TextInput, TextInputProps} from "react-native-paper";
 import {MaterialIcons} from "@expo/vector-icons";
 import {useTheme} from "styled-components";
 
@@ -67,7 +67,7 @@ const DefaultTextInput = (props: IProps) => {
         }
         error={error}
       />
-      {error && helperText && <Text style={{ color: 'red' }}>{helperText}</Text>}
+      {error && helperText && <HelperText visible={!!helperText}  type={"error"}>{helperText}</HelperText >}
     </>
   )
 }
