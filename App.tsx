@@ -19,6 +19,7 @@ import Register from "./src/screens/register/Register";
 import Teste from "./src/screens/pickDocuments/PickDocuments";
 import DefaultNavigation from "./src/components/bottomNavigation/BottonNavigation";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Home from "./src/screens/home/Home";
 
 export default function App() {
   const [appReady, setAppReady] = useState(false);
@@ -63,6 +64,7 @@ export default function App() {
           {/* <Register /> */}
           {/* <Teste /> */}
           {/* <DefaultNavigation /> */}
+          <Home />
         </SafeAreaProvider>
       </GestureHandlerRootView>
     </ThemeProvider>
