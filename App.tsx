@@ -17,6 +17,8 @@ import COLORS from "./src/styles/theme";
 import { StatusBar } from "react-native";
 import Register from "./src/screens/register/Register";
 import Teste from "./src/screens/pickDocuments/PickDocuments";
+import DefaultNavigation from "./src/components/bottomNavigation/BottonNavigation";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
   const [appReady, setAppReady] = useState(false);
@@ -56,9 +58,12 @@ export default function App() {
     <ThemeProvider theme={COLORS}>
       <StatusBar />
       <GestureHandlerRootView onLayout={onLayout} style={{ flex: 1 }}>
-        {/*<Login />*/}
-        {/* <Register /> */}
-        <Teste />
+        <SafeAreaProvider>
+          {/*<Login />*/}
+          {/* <Register /> */}
+          {/* <Teste /> */}
+          {/* <DefaultNavigation /> */}
+        </SafeAreaProvider>
       </GestureHandlerRootView>
     </ThemeProvider>
   );
