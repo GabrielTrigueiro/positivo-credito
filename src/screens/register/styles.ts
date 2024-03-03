@@ -18,20 +18,18 @@ export const MainTitle = styled(Text)`
 export const RegisterTitle = styled(Text)`
     width: 100%;
     text-align: center;
-    padding: ${RFValue(15)}px;
+    padding: ${RFValue(5)}px;
     background-color: #FCCE0878;
     font-size: ${RFValue(20)}px;
     font-family: ${({theme}) => theme.FONTS.POPPINSLIGHT};
+    margin-bottom: ${RFValue(10)}px;
 `;
-
-
 export const HeaderContainer = styled(View)`
-    margin-top: ${RFValue(25)}%;
+    margin-top: ${RFValue(15)}%;
     margin-bottom: ${RFValue(10)}%;
 `
 export const BodyContainer = styled(View)`
     gap: ${RFValue(5)}px;
-    margin-bottom: ${RFValue(10)}%;
 `
 export const FooterContainer = styled(View)`
     flex: 1;
