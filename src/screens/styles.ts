@@ -25,5 +25,7 @@ export const BodyContainer = styled(View)`
     margin-bottom: ${RFValue(25)}%;
 `
 export const FooterContainer = styled(View)`
-    width: ${RFValue(200)}px;
+    flex: 1;
+    width: 100%;
+    background: aqua;
 `

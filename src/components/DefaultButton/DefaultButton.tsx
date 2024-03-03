@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {MaterialIcons} from "@expo/vector-icons";
 import {StyledButton} from "./styles";
+import {ButtonProps} from "react-native-paper";
 
 interface IButtonProps {
   label: string;
