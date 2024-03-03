@@ -22,10 +22,10 @@ export const HeaderContainer = styled(View)`
 `
 export const BodyContainer = styled(View)`
     gap: ${RFValue(5)}px;
-    margin-bottom: ${RFValue(25)}%;
+    margin-bottom: ${RFValue(10)}%;
 `
 export const FooterContainer = styled(View)`
     flex: 1;
     width: 100%;
-    background: aqua;
+    display: flex;
 `

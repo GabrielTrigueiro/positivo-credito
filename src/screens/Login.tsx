@@ -38,7 +38,7 @@ const Login = () => {
         />
       </BodyContainer>
       <FooterContainer>
-        <DefaultButton action={() => {}} label={"Login"} iconName={"login"} />
+        <DefaultButton action={() => {}} label={"Entrar"}/>
       </FooterContainer>
     </Container>
   )
