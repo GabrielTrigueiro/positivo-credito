@@ -27,16 +27,16 @@ const DefaultTextInput = (props: IProps) => {
   return (
     <StyledTextInput
       {...rest}
-      theme={{colors: {primary: "#000", background: theme.COLORS.GRAY6, outline: "transparent"}, roundness: 40}}
+      theme={{colors: {primary: theme.COLORS.BLUE, background: theme.COLORS.GRAY6, outline: "transparent"}, roundness: 10}}
       placeholderTextColor={theme.COLORS.GRAY3}
       mode={"outlined"}
       label={label}
       value={inputValue}
       onChangeText={text => onValueChange(text)}
-      left={startIconName && <TextInput.Icon icon={startIconName}/>}
+      left={startIconName && <TextInput.Icon style={{paddingTop: 10}} icon={startIconName}/>}
       secureTextEntry={showPass}
       right={security &&
-          <TextInput.Icon onPress={() => setShowPass(!showPass)} icon={showPass ? "eye" : "eye-off"}/>}
+          <TextInput.Icon style={{paddingTop: 10}} onPress={() => setShowPass(!showPass)} icon={showPass ? "eye" : "eye-off"}/>}
     />
   )
 }

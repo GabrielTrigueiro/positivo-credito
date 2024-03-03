@@ -6,5 +6,5 @@ export const StyledButton = styled(Button)`
     margin: auto;
     width: ${RFValue(200)}px;
     border-radius: ${RFValue(15)}px;
-    background: ${({theme}) => theme.COLORS.BLUE3};
+    background: ${({theme}) => theme.COLORS.BLUE};
 `

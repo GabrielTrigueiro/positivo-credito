@@ -1,7 +1,8 @@
 import {BodyContainer, Container, FooterContainer, HeaderContainer, MainTitle} from "./styles";
 import {useState} from "react";
-import DefaultTextInput from "../components/DefaultTextInput/DefaultTextInput";
-import DefaultButton from "../components/DefaultButton/DefaultButton";
+import DefaultTextInput from "../../components/DefaultTextInput/DefaultTextInput";
+import DefaultButton from "../../components/DefaultButton/DefaultButton";
+
 
 const Login = () => {
 

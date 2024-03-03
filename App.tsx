@@ -16,7 +16,8 @@ import {
 
 import COLORS from "./src/styles/theme"
 import {StatusBar} from "react-native";
-import Login from "./src/screens/Login";
+import Login from "./src/screens/Login/Login";
+import Register from "./src/screens/Register/Register";
 
 export default function App() {
 
@@ -57,7 +58,8 @@ export default function App() {
     <ThemeProvider theme={COLORS}>
       <StatusBar  />
       <GestureHandlerRootView onLayout={onLayout} style={{ flex: 1 }}>
-        <Login />
+        {/*<Login />*/}
+        <Register />
       </GestureHandlerRootView>
     </ThemeProvider>
   );
