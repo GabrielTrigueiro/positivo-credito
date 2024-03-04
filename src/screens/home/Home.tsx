@@ -14,6 +14,7 @@ import { IMenuItems } from "../../components/defaultMenu";
 import DefaultMenu from "../../components/defaultMenu/DefaultMenu";
 import { Avatar } from "react-native-paper";
 import HomeCard from "../../components/homeCard/HomeCard";
+import FinancialInfos from "../../components/financialInfos/FinancialInfos";
 
 const Home = () => {
   const theme = useTheme();
@@ -26,6 +27,7 @@ const Home = () => {
         </Header>
         <Body>
           <HomeCard />
+          <FinancialInfos />
         </Body>
       </ScrollView>
     </Container>
