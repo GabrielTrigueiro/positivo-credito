@@ -5,13 +5,13 @@ import styled from "styled-components";
 export const UserInfos = styled(View)`
   background-color: transparent;
   border-radius: ${RFValue(15)}px;
-  padding: ${RFValue(10)}px;
+  padding: 0 ${RFValue(20)}px;
   margin-top: ${RFValue(10)}px;
 `;
 
 export const UserName = styled(Text)`
   color: ${({ theme }) => theme.COLORS.BLUE};
-  font-family: ${({ theme }) => theme.FONTS.POPPINSMEDIUM};
+  font-family: ${({ theme }) => theme.FONTS.POPPINSBOLD};
   font-size: ${RFValue(20)}px;
 `;
 

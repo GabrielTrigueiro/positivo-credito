@@ -1,15 +1,14 @@
 import { Avatar } from "react-native-paper";
 import { UserInfos, UserName, UserStatus } from "./styles";
-import { Ionicons } from "@expo/vector-icons";
 
 const UserHeader = () => {
   return (
     <UserInfos>
       <UserName>John Doe</UserName>
-      <UserStatus>Online</UserStatus>
+      <UserStatus>ativo</UserStatus>
       <Avatar.Image
         size={50}
-        style={{ position: "absolute", right: 10, bottom: 10, top: 20 }}
+        style={{ position: "absolute", right: 20, top: 5 }}
         source={{ uri: "https://i.pravatar.cc/100" }}
       />
     </UserInfos>
