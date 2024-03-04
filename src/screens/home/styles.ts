@@ -9,9 +9,6 @@ export const Container = styled(SafeAreaView)`
 `;
 
 export const Header = styled(View)`
-  flex: 1;
   margin-top: ${RFValue(20)}px;
 `;
-export const Body = styled(View)`
-  flex: 1;
-`;
+export const Body = styled(View)``;
