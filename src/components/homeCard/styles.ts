@@ -7,8 +7,8 @@ export const CardView = styled(View)`
   margin: auto;
   margin-top: ${RFValue(20)}px;
 
-  width: ${RFValue(320)}px;
-  height: ${RFValue(150)}px;
+  width: ${RFValue(310)}px;
+  height: ${RFValue(130)}px;
   border-radius: ${RFValue(50)}px;
 
   display: flex;

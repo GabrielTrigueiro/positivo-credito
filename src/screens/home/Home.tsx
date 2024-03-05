@@ -23,7 +23,8 @@ import UserHeader from "../../components/userHeader/UserHeader";
 import HomeCard from "../../components/homeCard/HomeCard";
 import FinancialInfos from "../../components/financialInfos/FinancialInfos";
 import { Ionicons } from "@expo/vector-icons";
-import { transparent } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
+import { useTheme } from "styled-components";
+import theme from "../../styles/theme";
 
 if (
   Platform.OS === "android" &&
@@ -33,6 +34,7 @@ if (
 }
 
 const Home = () => {
+  const theme = useTheme();
   const [full, setFull] = useState(false);
 
   const handleScroll = (event: any) => {
@@ -70,7 +72,7 @@ const Home = () => {
   };
 
   return (
-    <Container>
+    <Container $full={full}>
       <Header>
         <UserHeader />
       </Header>
@@ -79,6 +81,7 @@ const Home = () => {
         <FinancialInfos />
       </Body>
 
+      {full && <View style={styles.miniCard}></View>}
       <View style={full ? styles.fullScrollView : styles.partialScrollView}>
         <HistoricButton
           style={{ alignSelf: "center" }}
@@ -86,14 +89,13 @@ const Home = () => {
         >
           <Ionicons size={15} name={full ? "arrow-down" : "arrow-up"} />
         </HistoricButton>
-
         <ScrollView
           style={{ backgroundColor: "#fff" }}
           onScrollEndDrag={handleScroll}
           stickyHeaderIndices={[0]}
         >
           <ListHeader>
-            <Divider style={{ width: "100%" }} />
+            <Divider style={{ width: "90%" }} />
             <ListTitle>
               <MainTitle>Transações</MainTitle>
               <SecondaryTitle>ver todas</SecondaryTitle>
@@ -118,10 +120,17 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "85%",
     backgroundColor: "transparent",
-    paddingHorizontal: 10,
+    zIndex: 100,
   },
   partialScrollView: {
-    height: 300,
-    marginHorizontal: 20,
+    height: 200,
+  },
+  miniCard: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    backgroundColor: theme.COLORS.GRAY3,
+    opacity: 0.3,
   },
 });

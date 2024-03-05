@@ -3,7 +3,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components";
 
-export const Container = styled(SafeAreaView)`
+export const Container = styled(SafeAreaView)<{ $full?: boolean }>`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE_100};
 `;
@@ -12,7 +12,7 @@ export const Header = styled(View)`
   margin-top: ${RFValue(20)}px;
 `;
 export const Body = styled(View)`
-  margin-bottom: ${RFValue(20)}px;
+  margin-bottom: ${RFValue(10)}px;
 `;
 
 export const ListHeader = styled(View)`
@@ -32,6 +32,7 @@ export const ListTitle = styled(View)`
   margin-bottom: ${RFValue(10)}px;
   height: ${RFValue(50)}px;
   background: ${({ theme }) => theme.COLORS.WHITE};
+  padding: 0 ${RFValue(20)}px;
 `;
 
 export const MainTitle = styled(Text)`
