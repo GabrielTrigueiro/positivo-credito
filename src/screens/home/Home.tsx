@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { LayoutAnimation, Platform, Text, UIManager, View } from "react-native";
-import { List } from "react-native-paper";
 
 import {
   Body,
@@ -20,6 +19,7 @@ import UserHeader from "../../components/userHeader/UserHeader";
 import HomeCard from "../../components/homeCard/HomeCard";
 import FinancialInfos from "../../components/financialInfos/FinancialInfos";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import Navigator from "../../components/navigator/Navigator";
 
 interface IHistoricItem {
   icon: React.ComponentProps<typeof MaterialIcons>["name"];
@@ -39,18 +39,18 @@ const Home = () => {
   const [full, setFull] = useState(false);
   const toggleHistoric = () => {
     LayoutAnimation.configureNext({
-      ...LayoutAnimation.Presets.spring,
-      duration: 500,
+      ...LayoutAnimation.Presets.linear,
+      duration: 400,
     });
   };
 
   const handleScroll = (event: any) => {
     const { contentOffset } = event.nativeEvent;
     const offsetY = contentOffset.y;
-    if (offsetY <= 200 && full) {
+    if (offsetY <= 100 && full) {
       setFull(false);
       toggleHistoric();
-    } else if (offsetY >= 201 && full === false) {
+    } else if (offsetY >= 101 && full === false) {
       setFull(true);
       toggleHistoric();
     }
@@ -148,6 +148,8 @@ const Home = () => {
           ))}
         </HistoricScroll>
       </HistoricView>
+
+      <Navigator />
     </Container>
   );
 };

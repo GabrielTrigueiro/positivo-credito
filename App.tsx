@@ -13,18 +13,23 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import COLORS from "./src/styles/theme";
 import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Home from "./src/screens/home/Home";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./src/screens/login/Login";
+
+export type RootStackParamList = {
+  Home: undefined;
+  Login: undefined;
+};
 
 export default function App() {
   const [appReady, setAppReady] = useState(false);
 
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<RootStackParamList>();
 
   useEffect(() => {
     (async () => {
