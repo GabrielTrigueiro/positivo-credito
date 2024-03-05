@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Animated, Dimensions, ScrollView, StyleSheet } from "react-native";
+import {
+  Animated,
+  Dimensions,
+  ScrollView,
+  StyleSheet,
+  View,
+} from "react-native";
 import { List } from "react-native-paper";
 
 import { Body, Container, Header } from "./styles";
@@ -9,14 +15,16 @@ import FinancialInfos from "../../components/financialInfos/FinancialInfos";
 
 const Home = () => {
   const [full, setFull] = useState(false);
+  const [headerShown, setHeaderShown] = useState(false);
 
   const handleScroll = (event: any) => {
     const { contentOffset } = event.nativeEvent;
     const offsetY = contentOffset.y;
 
-    if (offsetY <= 60) {
+    console.log(offsetY);
+    if (offsetY <= 149) {
       setFull(false);
-    } else if (offsetY >= 0) {
+    } else if (offsetY >= 150) {
       setFull(true);
     }
   };
@@ -31,8 +39,20 @@ const Home = () => {
         <FinancialInfos />
       </Body>
 
+      {/* <View
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 80,
+          backgroundColor: "tomato",
+          transform: [{ translateX: headerShown ? 0 : -100 }],
+        }}
+      /> */}
+
       <ScrollView
-        onScroll={handleScroll}
+        onScrollEndDrag={handleScroll}
         style={full ? styles.fullScrollView : styles.partialScrollView}
       >
         {Array.from({ length: 20 }).map((_, index) => (
@@ -52,10 +72,12 @@ const styles = StyleSheet.create({
     left: 0,
     width: "100%",
     height: "80%",
-    backgroundColor: "blue",
+    padding: 20,
+
+    backgroundColor: "#fff",
   },
   partialScrollView: {
     height: 200,
-    backgroundColor: "red",
+    padding: 20,
   },
 });
