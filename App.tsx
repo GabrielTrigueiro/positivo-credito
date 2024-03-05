@@ -1,11 +1,12 @@
-import { ThemeProvider } from "styled-components";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { ThemeProvider } from "styled-components";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useCallback, useEffect, useState } from "react";
 import { DMSans_400Regular } from "@expo-google-fonts/dm-sans";
 import { DMSerifDisplay_400Regular } from "@expo-google-fonts/dm-serif-display";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   Poppins_300Light,
   Poppins_400Regular,
@@ -13,17 +14,28 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import COLORS from "./src/styles/theme";
 import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Home from "./src/screens/home/Home";
 import Login from "./src/screens/login/Login";
+import Register from "./src/screens/register/Register";
+import Notifications from "./src/screens/notifications/Notification";
+import CardInfos from "./src/screens/cardInfos/CardInfos";
+import FinancialInfos from "./src/screens/financialInfos/FinancialInfos";
+import Configurations from "./src/screens/configurations/Configurations";
+import UserOptions from "./src/screens/userOptions/UserOptions";
 
 export type RootStackParamList = {
-  Home: undefined;
   Login: undefined;
+  Register: undefined;
+  Home: undefined;
+  Notifications: undefined;
+  CardInfos: undefined;
+  FinancialInfos: undefined;
+  UserOptions: undefined;
+  Configurations: undefined;
 };
 
 export default function App() {
@@ -75,8 +87,38 @@ export default function App() {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
                 name="Home"
                 component={Home}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Notifications"
+                component={Notifications}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="CardInfos"
+                component={CardInfos}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="FinancialInfos"
+                component={FinancialInfos}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Configurations"
+                component={Configurations}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="UserOptions"
+                component={UserOptions}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>
