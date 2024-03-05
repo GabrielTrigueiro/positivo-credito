@@ -5,6 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useState } from "react";
 import { DMSans_400Regular } from "@expo-google-fonts/dm-sans";
 import { DMSerifDisplay_400Regular } from "@expo-google-fonts/dm-serif-display";
+import { NavigationContainer } from "@react-navigation/native";
 import {
   Poppins_300Light,
   Poppins_400Regular,
@@ -15,14 +16,15 @@ import {
 
 import COLORS from "./src/styles/theme";
 import { StatusBar } from "react-native";
-import Register from "./src/screens/register/Register";
-import Teste from "./src/screens/pickDocuments/PickDocuments";
-import DefaultNavigation from "./src/components/bottomNavigation/BottonNavigation";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Home from "./src/screens/home/Home";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Login from "./src/screens/login/Login";
 
 export default function App() {
   const [appReady, setAppReady] = useState(false);
+
+  const Stack = createNativeStackNavigator();
 
   useEffect(() => {
     (async () => {
@@ -60,11 +62,20 @@ export default function App() {
       <StatusBar />
       <GestureHandlerRootView onLayout={onLayout} style={{ flex: 1 }}>
         <SafeAreaProvider>
-          {/*<Login />*/}
-          {/* <Register /> */}
-          {/* <Teste /> */}
-          {/* <DefaultNavigation /> */}
-          <Home />
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Home"
+                component={Home}
+                options={{ headerShown: false }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
         </SafeAreaProvider>
       </GestureHandlerRootView>
     </ThemeProvider>
