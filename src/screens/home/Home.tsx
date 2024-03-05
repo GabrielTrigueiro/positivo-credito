@@ -20,6 +20,10 @@ import HomeCard from "../../components/homeCard/HomeCard";
 import FinancialInfos from "../../components/financialInfos/FinancialInfos";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import Navigator from "../../components/navigator/Navigator";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../App";
+
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
 interface IHistoricItem {
   icon: React.ComponentProps<typeof MaterialIcons>["name"];
@@ -35,7 +39,7 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-const Home = () => {
+const Home = ({ navigation, route }: Props) => {
   const [full, setFull] = useState(false);
   const toggleHistoric = () => {
     LayoutAnimation.configureNext({
@@ -149,7 +153,7 @@ const Home = () => {
         </HistoricScroll>
       </HistoricView>
 
-      <Navigator />
+      <Navigator useNavigate={navigation} />
     </Container>
   );
 };

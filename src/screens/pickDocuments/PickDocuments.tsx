@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Camera, CameraCapturedPicture, CameraType } from "expo-camera";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -11,6 +12,7 @@ import {
   View,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { RootStackParamList } from "../../../App";
 
 const Teste = () => {
   const [hasPermission, setHasPermission] = useState<any>(null);

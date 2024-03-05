@@ -6,11 +6,11 @@ import {
   MainTitle,
 } from "./styles";
 import { useState } from "react";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+
 import DefaultTextInput from "../../components/defaultTextInput/DefaultTextInput";
 import DefaultButton from "../../components/defaultButton/DefaultButton";
 import { RootStackParamList } from "../../../App";
-
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Login">;
 
