@@ -1,4 +1,5 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Divider } from "react-native-paper";
 import { RFValue } from "react-native-responsive-fontsize";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components";
@@ -48,6 +49,24 @@ export const SecondaryTitle = styled(Text)`
   color: ${({ theme }) => theme.COLORS.BLUE};
 `;
 
+export const HistoricBackDrop = styled(View)`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: ${({ theme }) => theme.COLORS.GRAY3};
+  opacity: 0.3;
+`;
+
+export const HistoricView = styled(View)<{ $full?: boolean }>`
+  position: ${({ $full }) => ($full ? "absolute" : undefined)};
+  bottom: ${({ $full }) => ($full ? 0 : undefined)};
+  left: ${({ $full }) => ($full ? 0 : undefined)};
+  width: ${({ $full }) => ($full ? "100%" : undefined)};
+  height: ${({ $full }) => ($full ? "85%" : "200px")};
+  background-color: ${({ $full }) => ($full ? "transparent" : undefined)};
+`;
+
 export const HistoricButton = styled(TouchableOpacity)`
   width: ${RFValue(50)}px;
   margin-right: auto;
@@ -67,4 +86,12 @@ export const HistoricButton = styled(TouchableOpacity)`
 
   border-top-left-radius: 90px;
   border-top-right-radius: 90px;
+`;
+
+export const HistoricScroll = styled(ScrollView)`
+  background: ${({ theme }) => theme.COLORS.WHITE};
+`;
+
+export const HistoricDivider = styled(Divider)`
+  width: 90%;
 `;

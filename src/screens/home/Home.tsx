@@ -13,7 +13,11 @@ import {
   Body,
   Container,
   Header,
+  HistoricBackDrop,
   HistoricButton,
+  HistoricDivider,
+  HistoricScroll,
+  HistoricView,
   ListHeader,
   ListTitle,
   MainTitle,
@@ -81,21 +85,17 @@ const Home = () => {
         <FinancialInfos />
       </Body>
 
-      {full && <View style={styles.miniCard}></View>}
-      <View style={full ? styles.fullScrollView : styles.partialScrollView}>
-        <HistoricButton
-          style={{ alignSelf: "center" }}
-          onPress={handeTouchHistoric}
-        >
+      {full && <HistoricBackDrop></HistoricBackDrop>}
+      <HistoricView $full={full}>
+        <HistoricButton onPress={handeTouchHistoric}>
           <Ionicons size={15} name={full ? "arrow-down" : "arrow-up"} />
         </HistoricButton>
-        <ScrollView
-          style={{ backgroundColor: "#fff" }}
+        <HistoricScroll
           onScrollEndDrag={handleScroll}
           stickyHeaderIndices={[0]}
         >
           <ListHeader>
-            <Divider style={{ width: "90%" }} />
+            <HistoricDivider />
             <ListTitle>
               <MainTitle>Transações</MainTitle>
               <SecondaryTitle>ver todas</SecondaryTitle>
@@ -104,33 +104,10 @@ const Home = () => {
           {Array.from({ length: 20 }).map((_, index) => (
             <List.Item key={index} title={`Item ${index + 1}`} />
           ))}
-        </ScrollView>
-      </View>
+        </HistoricScroll>
+      </HistoricView>
     </Container>
   );
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  fullScrollView: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    width: "100%",
-    height: "85%",
-    backgroundColor: "transparent",
-    zIndex: 100,
-  },
-  partialScrollView: {
-    height: 200,
-  },
-  miniCard: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    top: 0,
-    backgroundColor: theme.COLORS.GRAY3,
-    opacity: 0.3,
-  },
-});
