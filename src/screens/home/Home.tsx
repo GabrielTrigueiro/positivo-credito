@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import {
-  LayoutAnimation,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  UIManager,
-  View,
-} from "react-native";
-import { Divider, List } from "react-native-paper";
+import { LayoutAnimation, Platform, Text, UIManager, View } from "react-native";
+import { List } from "react-native-paper";
 
 import {
   Body,
@@ -26,9 +19,14 @@ import {
 import UserHeader from "../../components/userHeader/UserHeader";
 import HomeCard from "../../components/homeCard/HomeCard";
 import FinancialInfos from "../../components/financialInfos/FinancialInfos";
-import { Ionicons } from "@expo/vector-icons";
-import { useTheme } from "styled-components";
-import theme from "../../styles/theme";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+
+interface IHistoricItem {
+  icon: React.ComponentProps<typeof MaterialIcons>["name"];
+  title: string;
+  value: string;
+  class: string;
+}
 
 if (
   Platform.OS === "android" &&
@@ -38,42 +36,86 @@ if (
 }
 
 const Home = () => {
-  const theme = useTheme();
   const [full, setFull] = useState(false);
+  const toggleHistoric = () => {
+    LayoutAnimation.configureNext({
+      ...LayoutAnimation.Presets.spring,
+      duration: 500,
+    });
+  };
 
   const handleScroll = (event: any) => {
     const { contentOffset } = event.nativeEvent;
     const offsetY = contentOffset.y;
-    if (offsetY <= 149 && full) {
+    if (offsetY <= 200 && full) {
       setFull(false);
-      LayoutAnimation.configureNext({
-        ...LayoutAnimation.Presets.spring,
-        duration: 200,
-      });
-    } else if (offsetY >= 150 && full === false) {
+      toggleHistoric();
+    } else if (offsetY >= 201 && full === false) {
       setFull(true);
-      LayoutAnimation.configureNext({
-        ...LayoutAnimation.Presets.spring,
-        duration: 200,
-      });
+      toggleHistoric();
     }
   };
 
   const handeTouchHistoric = () => {
     if (full) {
       setFull(false);
-      LayoutAnimation.configureNext({
-        ...LayoutAnimation.Presets.spring,
-        duration: 200,
-      });
+      toggleHistoric();
     } else if (full === false) {
       setFull(true);
-      LayoutAnimation.configureNext({
-        ...LayoutAnimation.Presets.spring,
-        duration: 200,
-      });
+      toggleHistoric();
     }
   };
+
+  const historicPlaceholder: IHistoricItem[] = [
+    {
+      class: "Assinatura",
+      icon: "attach-money",
+      title: "Netflix",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Compra",
+      icon: "attach-money",
+      title: "Adidas",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Taxa",
+      icon: "attach-money",
+      title: "Paypal",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Taxa",
+      icon: "attach-money",
+      title: "Paypal",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Compra",
+      icon: "attach-money",
+      title: "Prada",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Parcela",
+      icon: "attach-money",
+      title: "Apple",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Pix",
+      icon: "attach-money",
+      title: "Transferência",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Compra",
+      icon: "attach-money",
+      title: "Uber",
+      value: "R$ 32,90",
+    },
+  ];
 
   return (
     <Container $full={full}>
@@ -101,8 +143,8 @@ const Home = () => {
               <SecondaryTitle>ver todas</SecondaryTitle>
             </ListTitle>
           </ListHeader>
-          {Array.from({ length: 20 }).map((_, index) => (
-            <List.Item key={index} title={`Item ${index + 1}`} />
+          {historicPlaceholder.map((item, index) => (
+            <HistoricItem key={index} {...item} />
           ))}
         </HistoricScroll>
       </HistoricView>
@@ -111,3 +153,51 @@ const Home = () => {
 };
 
 export default Home;
+
+const HistoricItem = (props: IHistoricItem) => {
+  return (
+    <View
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingHorizontal: 20,
+        borderBottomColor: "rgba(0,0,0,0.1)",
+        borderBottomWidth: 1,
+        alignItems: "center",
+        paddingVertical: 10,
+      }}
+    >
+      <View
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 5,
+        }}
+      >
+        <View
+          style={{
+            backgroundColor: "#000",
+            width: 30,
+            height: 30,
+            borderRadius: 200,
+            padding: 2,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <MaterialIcons name={props.icon} size={25} color={"#fff"} />
+        </View>
+        <View style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+          <Text>{props.title}</Text>
+          <Text>{props.class}</Text>
+        </View>
+      </View>
+      <Text>{props.value}</Text>
+    </View>
+  );
+};
