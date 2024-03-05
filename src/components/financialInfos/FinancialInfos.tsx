@@ -46,14 +46,12 @@ const FinancialInfos = () => {
         <InfoValuesContainer>
           <InfoTextValues>R$ 2.500,00</InfoTextValues>
           <View style={styles.container}>
+            <View style={[styles.greenProgress, { width: `${percentage}%` }]} />
             <View
               style={[
-                styles.greenProgress,
+                styles.orangeProgress,
                 { width: `${remainingPercentage}%` },
               ]}
-            />
-            <View
-              style={[styles.orangeProgress, { width: `${percentage}%` }]}
             />
           </View>
         </InfoValuesContainer>
@@ -76,10 +74,10 @@ const styles = StyleSheet.create({
   },
   greenProgress: {
     height: "100%",
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#FFA500",
   },
   orangeProgress: {
     height: "100%",
-    backgroundColor: "#FFA500",
+    backgroundColor: "#4CAF50",
   },
 });
