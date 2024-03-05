@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import {
   Animated,
   Dimensions,
+  LayoutAnimation,
+  Platform,
   ScrollView,
   StyleSheet,
+  UIManager,
   View,
 } from "react-native";
 import { List } from "react-native-paper";
@@ -13,19 +16,31 @@ import UserHeader from "../../components/userHeader/UserHeader";
 import HomeCard from "../../components/homeCard/HomeCard";
 import FinancialInfos from "../../components/financialInfos/FinancialInfos";
 
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
 const Home = () => {
   const [full, setFull] = useState(false);
-  const [headerShown, setHeaderShown] = useState(false);
 
   const handleScroll = (event: any) => {
     const { contentOffset } = event.nativeEvent;
     const offsetY = contentOffset.y;
-
-    console.log(offsetY);
     if (offsetY <= 149) {
       setFull(false);
+      LayoutAnimation.configureNext({
+        ...LayoutAnimation.Presets.spring,
+        duration: 200, // Defina a duração da animação para 200 milissegundos
+      });
     } else if (offsetY >= 150) {
       setFull(true);
+      LayoutAnimation.configureNext({
+        ...LayoutAnimation.Presets.spring,
+        duration: 200, // Defina a duração da animação para 200 milissegundos
+      });
     }
   };
 
