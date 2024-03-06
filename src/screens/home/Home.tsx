@@ -43,8 +43,8 @@ const Home = ({ navigation, route }: Props) => {
   const [full, setFull] = useState(false);
   const toggleHistoric = () => {
     LayoutAnimation.configureNext({
-      ...LayoutAnimation.Presets.linear,
-      duration: 400,
+      ...LayoutAnimation.Presets.easeInEaseOut,
+      duration: 300,
     });
   };
 
@@ -119,6 +119,24 @@ const Home = ({ navigation, route }: Props) => {
       title: "Uber",
       value: "R$ 32,90",
     },
+    {
+      class: "Parcela",
+      icon: "attach-money",
+      title: "Apple",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Pix",
+      icon: "attach-money",
+      title: "Transferência",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Compra",
+      icon: "attach-money",
+      title: "Uber",
+      value: "R$ 32,90",
+    },
   ];
 
   return (
@@ -132,7 +150,7 @@ const Home = ({ navigation, route }: Props) => {
       </Body>
 
       {full && <HistoricBackDrop></HistoricBackDrop>}
-      <HistoricView $full={full}>
+      <HistoricView style={{ zIndex: full ? 100 : 0 }} $full={full}>
         <HistoricButton onPress={handeTouchHistoric}>
           <Ionicons size={15} name={full ? "arrow-down" : "arrow-up"} />
         </HistoricButton>

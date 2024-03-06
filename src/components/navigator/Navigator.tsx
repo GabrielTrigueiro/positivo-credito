@@ -38,15 +38,19 @@ const Navigator = <T extends keyof RootStackParamList>({
   return (
     <Container>
       <NavIcon
-        iconName="wallet-outline"
+        iconName={route.name === "Home" ? "wallet" : "wallet-outline"}
         onPress={() => navigation.navigate("Home")}
       />
       <NavIcon
-        iconName="bar-chart-outline"
+        iconName={
+          route.name === "FinancialInfos" ? "bar-chart" : "bar-chart-outline"
+        }
         onPress={() => navigation.navigate("FinancialInfos")}
       />
       <NavIcon
-        iconName="options-outline"
+        iconName={
+          route.name === "Configurations" ? "options" : "options-outline"
+        }
         onPress={() => navigation.navigate("Configurations")}
       />
     </Container>
