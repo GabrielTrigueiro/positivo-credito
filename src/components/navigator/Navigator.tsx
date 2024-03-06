@@ -1,26 +1,53 @@
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { Container } from "./style";
-import { RootStackParamList } from "../../../App";
-import DefaultButton from "../defaultButton/DefaultButton";
+import { TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-type INavigatorProps = {
-  useNavigate: any;
+import { Container, IconNavButton } from "./style";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RouteProp } from "@react-navigation/native";
+import { RootStackParamList } from "../../../App";
+
+interface INvIconProps {
+  onPress: () => void;
+  iconName: React.ComponentProps<typeof Ionicons>["name"];
+}
+
+type TNavigatorProps<T extends keyof RootStackParamList> = {
+  navigation: NativeStackNavigationProp<RootStackParamList, T>;
+  route: RouteProp<RootStackParamList, T>;
+  show?: boolean;
 };
 
-const Navigator = (props: INavigatorProps) => {
+const NavIcon = (props: INvIconProps) => {
+  return (
+    <IconNavButton onPress={props.onPress}>
+      <Ionicons
+        style={{ margin: "auto" }}
+        name={props.iconName}
+        size={24}
+        color="white"
+      />
+    </IconNavButton>
+  );
+};
+
+const Navigator = <T extends keyof RootStackParamList>({
+  navigation,
+  route,
+  show,
+}: TNavigatorProps<T>) => {
   return (
     <Container>
-      <DefaultButton
-        action={() => props.useNavigate.navigate("CardInfos")}
-        label={"Cartão"}
+      <NavIcon
+        iconName="wallet-outline"
+        onPress={() => navigation.navigate("Home")}
       />
-      <DefaultButton
-        action={() => props.useNavigate.navigate("FinancialInfos")}
-        label={"Financias"}
+      <NavIcon
+        iconName="bar-chart-outline"
+        onPress={() => navigation.navigate("FinancialInfos")}
       />
-      <DefaultButton
-        action={() => props.useNavigate.navigate("Configuartions")}
-        label={"Configuração"}
+      <NavIcon
+        iconName="options-outline"
+        onPress={() => navigation.navigate("Configurations")}
       />
     </Container>
   );

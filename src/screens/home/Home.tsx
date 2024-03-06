@@ -153,7 +153,7 @@ const Home = ({ navigation, route }: Props) => {
         </HistoricScroll>
       </HistoricView>
 
-      <Navigator useNavigate={navigation} />
+      <Navigator navigation={navigation} route={route} />
     </Container>
   );
 };
