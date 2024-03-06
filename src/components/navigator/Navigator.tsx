@@ -11,7 +11,7 @@ interface INvIconProps {
   iconName: React.ComponentProps<typeof Ionicons>["name"];
 }
 
-type TNavigatorProps<T extends keyof RootStackParamList> = {
+export type TNavigatorProps<T extends keyof RootStackParamList> = {
   navigation: NativeStackNavigationProp<RootStackParamList, T>;
   route: RouteProp<RootStackParamList, T>;
   show?: boolean;

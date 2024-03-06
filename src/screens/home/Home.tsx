@@ -142,13 +142,12 @@ const Home = ({ navigation, route }: Props) => {
   return (
     <Container $full={full}>
       <Header>
-        <UserHeader />
+        <UserHeader navigation={navigation} route={route} />
       </Header>
       <Body>
         <HomeCard />
         <FinancialInfos />
       </Body>
-
       {full && <HistoricBackDrop></HistoricBackDrop>}
       <HistoricView style={{ zIndex: full ? 100 : 0 }} $full={full}>
         <HistoricButton onPress={handeTouchHistoric}>
@@ -170,7 +169,6 @@ const Home = ({ navigation, route }: Props) => {
           ))}
         </HistoricScroll>
       </HistoricView>
-
       <Navigator navigation={navigation} route={route} />
     </Container>
   );

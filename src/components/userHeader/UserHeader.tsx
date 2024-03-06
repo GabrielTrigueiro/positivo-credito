@@ -9,8 +9,14 @@ import {
 } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "styled-components";
+import { RootStackParamList } from "../../../App";
+import { TNavigatorProps } from "../navigator";
 
-const UserHeader = () => {
+const UserHeader = <T extends keyof RootStackParamList>({
+  navigation,
+  route,
+  show,
+}: TNavigatorProps<T>) => {
   const theme = useTheme();
   return (
     <UserInfos>
@@ -19,7 +25,9 @@ const UserHeader = () => {
         <UserStatus>ativo</UserStatus>
       </UserIPrimaryContainer>
       <UserISecondaryContainer>
-        <NotificationBadgeContainer>
+        <NotificationBadgeContainer
+          onPress={() => navigation.navigate("Notifications")}
+        >
           <Badge size={15} style={{ top: 0, right: 0, position: "absolute" }}>
             2
           </Badge>

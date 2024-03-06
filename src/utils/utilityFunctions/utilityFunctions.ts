@@ -44,5 +44,17 @@ function validarCnpj(cnpj: string): boolean {
 }
 
 export const UtilityFunctions = {
-  validarCpfCnpj
+  validarCpfCnpj,
+};
+
+export function formatCurrency(numero?: number): string {
+  if (numero === undefined || numero === null) {
+    return "0,00";
+  }
+
+  // Formatando o número com duas casas decimais
+  const numeroFormatado = numero.toFixed(2);
+
+  // Substituindo o ponto por vírgula
+  return numeroFormatado.replace(".", ",");
 }

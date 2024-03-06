@@ -99,7 +99,7 @@ export default function App() {
               <Stack.Screen
                 name="Notifications"
                 component={Notifications}
-                options={{ headerShown: false }}
+                options={{ headerTitle: "", headerShadowVisible: false }}
               />
               <Stack.Screen
                 name="CardInfos"
