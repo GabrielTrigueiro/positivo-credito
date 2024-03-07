@@ -10,7 +10,7 @@ export const CardView = styled(LinearGradient)<{ isPressed?: boolean }>`
 
   width: ${RFValue(310)}px;
   height: ${RFValue(130)}px;
-  border-radius: ${RFValue(50)}px;
+  border-radius: ${RFValue(30)}px;
 
   display: flex;
   justify-content: flex-end;

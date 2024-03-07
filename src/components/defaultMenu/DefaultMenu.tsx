@@ -1,13 +1,6 @@
 import * as React from "react";
-import { View, TouchableOpacity } from "react-native";
-import {
-  Button,
-  Menu,
-  Divider,
-  PaperProvider,
-  Avatar,
-  Text,
-} from "react-native-paper";
+import { TouchableOpacity } from "react-native";
+import { Menu, PaperProvider, Avatar } from "react-native-paper";
 import { MenuContainer } from "./styles";
 
 export interface IMenuItems {
