@@ -1,3 +1,4 @@
+import { LinearGradient } from "expo-linear-gradient";
 import { Text, View } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components";
@@ -16,7 +17,7 @@ export const Title = styled(Text)`
   text-align: center;
 `;
 
-export const Card = styled(View)`
+export const Card = styled(LinearGradient)`
   width: 100%;
   max-width: ${RFValue(500)}px;
   height: ${RFValue(200)}px;

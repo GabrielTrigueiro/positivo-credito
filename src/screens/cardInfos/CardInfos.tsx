@@ -25,14 +25,18 @@ const CardInfos = ({ navigation, route }: Props) => {
     <Container>
       <Title>Detalhes do cartão</Title>
       <Card
+        colors={[theme.COLORS.BLUE, theme.COLORS.BLUE5]}
+        locations={[0.1, 0.9]}
+        start={[0, 0]}
+        end={[1, 1]}
         style={{
           shadowColor: "#000",
           shadowOffset: {
             width: 0,
-            height: 7,
+            height: 32,
           },
-          shadowOpacity: 0.41,
-          shadowRadius: 9.11,
+          shadowOpacity: 0.58,
+          shadowRadius: 16.0,
 
           elevation: 14,
         }}

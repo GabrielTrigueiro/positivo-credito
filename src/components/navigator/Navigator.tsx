@@ -41,12 +41,12 @@ const Navigator = <T extends keyof RootStackParamList>({
         shadowColor: "#000",
         shadowOffset: {
           width: 0,
-          height: 7,
+          height: 12,
         },
-        shadowOpacity: 0.41,
-        shadowRadius: 9.11,
+        shadowOpacity: 0.58,
+        shadowRadius: 16.0,
 
-        elevation: 14,
+        elevation: 4,
       }}
     >
       <NavIcon
