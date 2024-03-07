@@ -36,6 +36,7 @@ export type RootStackParamList = {
   FinancialInfos: undefined;
   UserOptions: undefined;
   Configurations: undefined;
+  LimitCard: undefined;
 };
 
 export default function App() {
@@ -104,7 +105,7 @@ export default function App() {
               <Stack.Screen
                 name="CardInfos"
                 component={CardInfos}
-                options={{ headerShown: false }}
+                options={{ headerTitle: "", headerShadowVisible: false }}
               />
               <Stack.Screen
                 name="FinancialInfos"

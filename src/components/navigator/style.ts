@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Container = styled(View)`
   position: absolute;
-  bottom: ${RFValue(40)}px;
+  bottom: ${RFValue(20)}px;
   align-self: center;
   border-radius: ${RFValue(30)}px;
 

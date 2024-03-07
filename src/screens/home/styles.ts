@@ -63,7 +63,7 @@ export const HistoricView = styled(View)<{ $full?: boolean }>`
   bottom: ${({ $full }) => ($full ? 0 : undefined)};
   left: ${({ $full }) => ($full ? 0 : undefined)};
   width: ${({ $full }) => ($full ? "100%" : undefined)};
-  height: ${({ $full }) => ($full ? "85%" : "200px")};
+  height: ${({ $full }) => ($full ? "85%" : `${RFValue(250)}px`)};
   background-color: ${({ $full }) => ($full ? "transparent" : undefined)};
 `;
 

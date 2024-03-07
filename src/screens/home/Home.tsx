@@ -44,18 +44,19 @@ const Home = ({ navigation, route }: Props) => {
   const toggleHistoric = () => {
     LayoutAnimation.configureNext({
       ...LayoutAnimation.Presets.easeInEaseOut,
-      duration: 300,
+      duration: 400,
     });
   };
 
   const handleScroll = (event: any) => {
     const { contentOffset } = event.nativeEvent;
     const offsetY = contentOffset.y;
-    if (offsetY <= 100 && full) {
-      setFull(false);
-      toggleHistoric();
-    } else if (offsetY >= 101 && full === false) {
+    console.log(offsetY);
+    if (offsetY >= 200) {
       setFull(true);
+      toggleHistoric();
+    } else if (offsetY === 0) {
+      setFull(false);
       toggleHistoric();
     }
   };
@@ -145,7 +146,7 @@ const Home = ({ navigation, route }: Props) => {
         <UserHeader navigation={navigation} route={route} />
       </Header>
       <Body>
-        <HomeCard />
+        <HomeCard navigation={navigation} route={route} />
         <FinancialInfos />
       </Body>
       {full && <HistoricBackDrop></HistoricBackDrop>}
@@ -154,7 +155,7 @@ const Home = ({ navigation, route }: Props) => {
           <Ionicons size={15} name={full ? "arrow-down" : "arrow-up"} />
         </HistoricButton>
         <HistoricScroll
-          onScrollEndDrag={handleScroll}
+          onMomentumScrollBegin={handleScroll}
           stickyHeaderIndices={[0]}
         >
           <ListHeader>

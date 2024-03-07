@@ -20,6 +20,7 @@ export default {
     GREEN3: "#6FCF97",
     GREEN2: "#27AE60",
     GREEN1: "#219653",
+    BLUE5: "#077284",
     BLUE4: "#3498db",
     BLUE3: "#56CCF2",
     BLUE2: "#2D9CDB",
