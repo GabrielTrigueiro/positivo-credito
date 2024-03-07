@@ -147,7 +147,7 @@ const Home = ({ navigation, route }: Props) => {
       </Header>
       <Body>
         <HomeCard navigation={navigation} route={route} />
-        <FinancialInfos />
+        <FinancialInfos navigation={navigation} route={route} />
       </Body>
       {full && <HistoricBackDrop></HistoricBackDrop>}
       <HistoricView style={{ zIndex: full ? 100 : 0 }} $full={full}>

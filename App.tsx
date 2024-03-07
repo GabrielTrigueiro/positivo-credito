@@ -26,6 +26,8 @@ import CardInfos from "./src/screens/cardInfos/CardInfos";
 import FinancialInfos from "./src/screens/financialInfos/FinancialInfos";
 import Configurations from "./src/screens/configurations/Configurations";
 import UserOptions from "./src/screens/userOptions/UserOptions";
+import AvailableLimit from "./src/screens/availableLimit/AvailableLimit";
+import OpenInvoice from "./src/screens/openInvoice/OpenInvoice";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -37,11 +39,12 @@ export type RootStackParamList = {
   UserOptions: undefined;
   Configurations: undefined;
   LimitCard: undefined;
+  AvailableLimit: undefined;
+  OpenInvoice: undefined;
 };
 
 export default function App() {
   const [appReady, setAppReady] = useState(false);
-
   const Stack = createNativeStackNavigator<RootStackParamList>();
 
   useEffect(() => {
@@ -121,6 +124,16 @@ export default function App() {
                 name="UserOptions"
                 component={UserOptions}
                 options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="AvailableLimit"
+                component={AvailableLimit}
+                options={{ headerTitle: "", headerShadowVisible: false }}
+              />
+              <Stack.Screen
+                name="OpenInvoice"
+                component={OpenInvoice}
+                options={{ headerTitle: "", headerShadowVisible: false }}
               />
             </Stack.Navigator>
           </NavigationContainer>

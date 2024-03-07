@@ -1,5 +1,4 @@
-import { Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Text, View, TouchableOpacity } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components";
 
@@ -10,7 +9,7 @@ export const Container = styled(View)`
   flex-direction: row;
 `;
 
-export const InfoContainer = styled(View)`
+export const InfoContainer = styled(TouchableOpacity)`
   flex: 1;
   display: flex;
   align-items: start;

@@ -10,8 +10,14 @@ import {
 import { Divider, ProgressBar } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, View } from "react-native";
+import { RootStackParamList } from "../../../App";
+import { TNavigatorProps } from "../navigator";
 
-const FinancialInfos = () => {
+const FinancialInfos = <T extends keyof RootStackParamList>({
+  navigation,
+  route,
+  show,
+}: TNavigatorProps<T>) => {
   const totalLimit = 4000;
   const atual = 2500;
   const percentage = (atual / totalLimit) * 100;
@@ -19,7 +25,10 @@ const FinancialInfos = () => {
 
   return (
     <Container>
-      <InfoContainer style={{ alignItems: "flex-end" }}>
+      <InfoContainer
+        onPress={() => navigation.navigate("OpenInvoice")}
+        style={{ alignItems: "flex-end" }}
+      >
         <InfoTitleContainer>
           <InfoTextTitle>Fatura aberta</InfoTextTitle>
           <ArrowButton>
@@ -35,7 +44,10 @@ const FinancialInfos = () => {
 
       <Divider horizontalInset style={{ width: 1, height: "100%" }} />
 
-      <InfoContainer style={{ alignItems: "flex-start" }}>
+      <InfoContainer
+        onPress={() => navigation.navigate("AvailableLimit")}
+        style={{ alignItems: "flex-start" }}
+      >
         <InfoTitleContainer>
           <InfoTextTitle>Limite Disponivel</InfoTextTitle>
           <ArrowButton>
