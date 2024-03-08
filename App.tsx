@@ -118,7 +118,7 @@ export default function App() {
               <Stack.Screen
                 name="Configurations"
                 component={Configurations}
-                options={{ headerShown: false }}
+                options={{ headerTitle: "", headerShadowVisible: false }}
               />
               <Stack.Screen
                 name="UserOptions"
