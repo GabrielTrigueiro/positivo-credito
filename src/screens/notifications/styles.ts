@@ -8,7 +8,7 @@ export const Container = styled(View)`
 `;
 
 export const Title = styled(Text)`
-  color: ${({ theme }) => theme.COLORS.BLUE2};
+  color: ${({ theme }) => theme.COLORS.BLUE5};
   font-size: ${RFValue(20)}px;
   font-family: ${({ theme }) => theme.FONTS.POPPINSMEDIUM};
   text-align: center;
@@ -22,17 +22,14 @@ export const NotificationContainer = styled(ScrollView)`
 `;
 
 export const NotificationRowContainer = styled(View)`
-  height: ${RFValue(100)}px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.WHITE_100};
-  padding: ${RFValue(10)}px;
+  padding: ${RFValue(6)}px ${RFValue(10)}px;
   border-radius: ${RFValue(20)}px;
   margin: ${RFValue(5)}px ${RFValue(10)}px;
-  border-width: ${RFValue(1)}px;
-  border-color: ${({ theme }) => theme.COLORS.GRAY6};
 `;
 
 export const InfosPartition = styled(View)`

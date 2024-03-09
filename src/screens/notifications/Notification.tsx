@@ -42,11 +42,31 @@ const NotificationRow = (props: IInfoProps) => {
       }}
     >
       <InfosPartition>
-        <Text style={{ fontSize: 12, color: theme.COLORS.GRAY4 }}>{date}</Text>
-        <Text style={{ fontSize: 16, color: theme.COLORS.BLACK }}>
+        <Text
+          style={{
+            fontSize: 12,
+            color: theme.COLORS.GRAY4,
+            fontFamily: theme.FONTS.POPPINSREGULAR,
+          }}
+        >
+          {date}
+        </Text>
+        <Text
+          style={{
+            fontSize: 14,
+            color: theme.COLORS.BLACK,
+            fontFamily: theme.FONTS.POPPINSREGULAR,
+          }}
+        >
           {entity} - R$ {formatCurrency(amount)}.
         </Text>
-        <Text style={{ fontSize: 12, color: theme.COLORS.GRAY4 }}>
+        <Text
+          style={{
+            fontSize: 12,
+            color: theme.COLORS.GRAY4,
+            fontFamily: theme.FONTS.POPPINSREGULAR,
+          }}
+        >
           {category}
         </Text>
       </InfosPartition>

@@ -123,7 +123,7 @@ export default function App() {
               <Stack.Screen
                 name="UserOptions"
                 component={UserOptions}
-                options={{ headerShown: false }}
+                options={{ headerTitle: "", headerShadowVisible: false }}
               />
               <Stack.Screen
                 name="AvailableLimit"

@@ -1,6 +1,7 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import {
   Container,
+  LogoutButton,
   Option,
   OptionContent,
   OptionIcon,
@@ -9,7 +10,6 @@ import {
 } from "./styles";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../App";
-import Navigator from "../../components/navigator/Navigator";
 import { Ionicons } from "@expo/vector-icons";
 import theme from "../../styles/theme";
 
@@ -69,6 +69,22 @@ const Configurations = ({ navigation, route }: Props) => {
       {options.map((option, index) => (
         <OptionRow key={index} {...option} />
       ))}
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <LogoutButton>
+          <Ionicons
+            name="exit-outline"
+            size={24}
+            style={{ color: theme.COLORS.BLUE5 }}
+          />
+        </LogoutButton>
+        <OptionText>Sair</OptionText>
+      </View>
     </Container>
   );
 };
