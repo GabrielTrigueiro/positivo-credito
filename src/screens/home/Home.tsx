@@ -1,5 +1,14 @@
 import React, { useState } from "react";
 import { LayoutAnimation, Platform, Text, UIManager, View } from "react-native";
+import {
+  Canvas,
+  Fill,
+  Image,
+  BackdropBlur,
+  ColorMatrix,
+  useImage,
+  BackdropFilter,
+} from "@shopify/react-native-skia";
 
 import {
   Body,
@@ -25,6 +34,9 @@ import { RootStackParamList } from "../../../App";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
+const BLACK_AND_WHITE = [
+  0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0,
+];
 interface IHistoricItem {
   icon: React.ComponentProps<typeof MaterialIcons>["name"];
   title: string;
@@ -62,16 +74,47 @@ const Home = ({ navigation, route }: Props) => {
   };
 
   const handeTouchHistoric = () => {
-    if (full) {
-      setFull(false);
-      toggleHistoric();
-    } else if (full === false) {
-      setFull(true);
-      toggleHistoric();
-    }
+    setFull(!full);
+    toggleHistoric();
   };
 
   const historicPlaceholder: IHistoricItem[] = [
+    {
+      class: "Assinatura",
+      icon: "attach-money",
+      title: "Netflix",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Compra",
+      icon: "attach-money",
+      title: "Adidas",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Assinatura",
+      icon: "attach-money",
+      title: "Netflix",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Compra",
+      icon: "attach-money",
+      title: "Adidas",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Assinatura",
+      icon: "attach-money",
+      title: "Netflix",
+      value: "R$ 32,90",
+    },
+    {
+      class: "Compra",
+      icon: "attach-money",
+      title: "Adidas",
+      value: "R$ 32,90",
+    },
     {
       class: "Assinatura",
       icon: "attach-money",
@@ -162,7 +205,9 @@ const Home = ({ navigation, route }: Props) => {
             <HistoricDivider />
             <ListTitle>
               <MainTitle>Transações</MainTitle>
-              <SecondaryTitle>ver todas</SecondaryTitle>
+              <SecondaryTitle onPress={handeTouchHistoric}>
+                {full ? "Ver menos" : "Ver mais"}
+              </SecondaryTitle>
             </ListTitle>
           </ListHeader>
           {historicPlaceholder.map((item, index) => (
@@ -170,6 +215,7 @@ const Home = ({ navigation, route }: Props) => {
           ))}
         </HistoricScroll>
       </HistoricView>
+
       <Navigator navigation={navigation} route={route} />
     </Container>
   );
@@ -186,8 +232,6 @@ const HistoricItem = (props: IHistoricItem) => {
         flexDirection: "row",
         justifyContent: "space-between",
         paddingHorizontal: 20,
-        borderBottomColor: "rgba(0,0,0,0.1)",
-        borderBottomWidth: 1,
         alignItems: "center",
         paddingVertical: 10,
       }}

@@ -63,7 +63,7 @@ export const HistoricView = styled(View)<{ $full?: boolean }>`
   bottom: ${({ $full }) => ($full ? 0 : undefined)};
   left: ${({ $full }) => ($full ? 0 : undefined)};
   width: ${({ $full }) => ($full ? "100%" : undefined)};
-  height: ${({ $full }) => ($full ? "85%" : `${RFValue(220)}px`)};
+  height: ${({ $full }) => ($full ? "80%" : `100%`)};
   background-color: ${({ $full }) => ($full ? "transparent" : undefined)};
 `;
 
@@ -81,7 +81,7 @@ export const HistoricButton = styled(TouchableOpacity)`
   border-top-width: 1px;
   border-left-width: 1px;
   border-right-width: 1px;
-  border-color: ${({ theme }) => theme.COLORS.GRAY5};
+  border-color: transparent;
   border-bottom-width: 0; /* Para remover a borda na parte inferior */
 
   border-top-left-radius: 90px;

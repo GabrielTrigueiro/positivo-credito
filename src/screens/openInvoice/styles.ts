@@ -6,6 +6,7 @@ import styled from "styled-components";
 export const Container = styled(View)`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
+  display: flex;
 `;
 
 export const HeaderIncoive = styled(View)`
